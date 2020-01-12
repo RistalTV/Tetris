@@ -7,6 +7,8 @@ namespace Tetris
     {
         static void Main(string[] args)
         {
+            Console.
+        //Нахуя ???
             Random rnd = new Random();
             Console.Write(rnd.Next(0,15));
             
