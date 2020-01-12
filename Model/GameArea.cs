@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+
+
     public class GameArea
     {
         int height;//высота игрового поля
         int width;//ширина игрового поля
         int[,] map;//шаблон матрицы поля
+
+        char Empty { set; get; } = '0';
+        char Block { set; get; } = '1';
 
         public GameArea(int width, int height)
         {
@@ -26,7 +31,7 @@ namespace Model
             {
                 for (int y = 0; y < height; y++)
                 {
-                    map[x, y] = 0;//запись нулей в каждую ячейку матрицы
+                    setPos(x, y, 0);//запись нулей в каждую ячейку матрицы
                 }
             }
         }
@@ -40,12 +45,21 @@ namespace Model
                     switch (map[x, y])
                     {
                         //легенда обозначений карты
-                        case 0: Console.Write(" "); break;
-                        case 1: Console.Write("X"); break;
+                        case 0: Console.Write(Empty); break;
+                        case 1: Console.Write(Block); break;
                     }
                 }
                 Console.WriteLine();
             }
+        }
+
+        public void setPos(int x, int y, int value)
+        {
+            map[x, y] = value;
+        }
+        public int getPos(int x, int y)
+        {
+            return map[x, y];
         }
 
 
