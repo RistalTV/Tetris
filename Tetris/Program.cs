@@ -10,17 +10,16 @@ namespace Tetris
         {
             Random rnd = new Random();
             GameArea area = new GameArea(9,12);
-            //area.SetPos(0, 0, 1);
-            //area.SetPos(1, 1, 1);
-            //area.SetPos(2, 2, 1);
 
-            for (int y = 0; y < 12-1; y++)
-                for (int x = 0; x < 9; x++)
-                {
-                    area.SetPos(x, y, 5);
-                }
-            //area.Lift();
-            area.PrintMap();
+            area.AddBlock(4, 4, 1);
+            for (int i = 0; i < 20; i++)
+            {
+                Thread.Sleep(300);
+                area.Lift();
+                area.PrintMap();
+            }
+
+            
 
             
         }
